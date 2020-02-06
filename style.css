@@ -1,0 +1,28 @@
+body > * {
+    border: 2px dotted black;
+}
+
+.weather-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 75%;
+    min-height: 1000px;
+    margin: 0 auto;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    border: 2px dotted black;
+}
+
+.weather-box {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    min-height: 90px;
+    width: 100%;
+}
