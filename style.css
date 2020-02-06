@@ -6,19 +6,19 @@ body > * {
     border: 2px dotted black;
 }
 
-.weather-container {
+.news-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     width: 90%;
-    min-height: 800px;
+    min-height: 600px;
     margin: 0 auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     border: 2px dotted black;
 }
 
-.weather-box {
+.news-box {
     border: 2px solid black;
     display: flex;
     flex-direction: column;
