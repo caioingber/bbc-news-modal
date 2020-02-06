@@ -50,6 +50,10 @@ main {
     font-family: 'Bebas Neue', cursive;
 }
 
+#close-btn {
+    cursor: pointer;
+}
+
 nav {
     min-height: 90px;
     width: 100%;

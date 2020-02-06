@@ -4,6 +4,14 @@ let boxes = document.querySelectorAll('.news-box')
 let title = document.querySelectorAll('.headline-text')
 let date = document.querySelectorAll('.publish-date')
 let hidden = document.querySelector('.modal')
+let xButton = document.querySelector('#close-btn')
+
+closeButton = () => {
+    hidden.style.opacity = 0
+    hidden.style.zIndex = -1
+}
+
+xButton.addEventListener('click', closeButton)
 
 let body = document.querySelector('main')
 
