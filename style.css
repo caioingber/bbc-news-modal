@@ -1,5 +1,6 @@
 body {
     background-color: rgb(89, 89, 222);
+    font-family: 'Bebas Neue', cursive;
 }
 
 body > * {
@@ -18,8 +19,9 @@ main {
     position: absolute;
     top: 15%;
     left: 10%;
-    /* display: none; */
-    z-index: 1;
+    opacity: 0;
+    z-index: -1;
+    transition: .5s;
 }
 
 .news-container {
@@ -42,6 +44,10 @@ main {
     justify-content: flex-start;
     align-items: center;
     /* background-size: cover; */
+}
+
+.headline-text {
+    font-family: 'Bebas Neue', cursive;
 }
 
 nav {
