@@ -49,10 +49,12 @@ fetch (baseUrl)
                 // e.preventDefault()
                 hidden.style.opacity = 1
                 hidden.style.zIndex = 1
-                let modalHeadline = document.querySelector('.headline-modal')
+                let modalHeadline = document.querySelector('#headline-modal')
                 modalHeadline.innerHTML = headline
-                let modalDescription = document.querySelector('.news-description')
+                let modalDescription = document.querySelector('#news-description')
                 modalDescription.innerHTML = res.articles[i].description
+                let modalImage = document.querySelector('#modal-image')
+                modalImage.setAttribute('src', image)
             }
             boxes[i].addEventListener('click', showModal)
 
