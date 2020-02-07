@@ -7,6 +7,8 @@ let hidden = document.querySelector('.modal')
 let xButton = document.querySelector('#close-text')
 let modalOpen = false
 
+let images = document.querySelectorAll('img')
+
 closeButton = () => {
     hidden.style.opacity = 0
     hidden.style.zIndex = -1
@@ -29,13 +31,23 @@ fetch (baseUrl)
         for (let i=0; i < 6; i++) {
         //fetch image for article
             let image = res.articles[i].urlToImage
-            boxes[i].style.backgroundImage = `url(${image})`
-            boxes[i].style.backgroundSize = 'cover'
-            boxes[i].style.backgroundPosition = 'left'
-            boxes[i].style.backgroundRepeat = 'no-repeat'
+            images[i].setAttribute('src', image)
+            // boxes[i].style.backgroundSize = 'cover'
+            // boxes[i].style.backgroundPosition = 'left'
+            // boxes[i].style.backgroundRepeat = 'no-repeat'
             //fetch headline
             let headline = res.articles[i].title
             title[i].innerText = headline
+            function showHeadline () {
+                title[i].style.zIndex = '1'
+                title[i].style.transition = '0.5s'
+            }
+            boxes[i].addEventListener('mouseenter', showHeadline)
+            function removeHeadline () {
+                title[i].style.zIndex = '-1'
+                title[i].style.transition = '0.5s'
+            }
+            boxes[i].addEventListener('mouseleave', removeHeadline)
             //fetch timestamp
             let publishTime = res.articles[i].publishedAt
             let trimStamp = publishTime.substring(0, 10)
@@ -49,7 +61,7 @@ fetch (baseUrl)
                 e.preventDefault()
                 //display modal div
                 hidden.style.opacity = 1
-                hidden.style.zIndex = 1
+                hidden.style.zIndex = 9
                 // show headline in modal
                 let modalHeadline = document.querySelector('#headline-modal')
                 modalHeadline.innerHTML = headline
@@ -72,6 +84,7 @@ fetch (baseUrl)
                 contentBox.innerText = `${modContent}...`
             }
             boxes[i].addEventListener('click', showModal)
+
 
     }
     })
