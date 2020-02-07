@@ -4,10 +4,8 @@ let boxes = document.querySelectorAll('.news-box')
 let title = document.querySelectorAll('.headline-text')
 let timeStamp = document.querySelectorAll('.publish-date')
 let hidden = document.querySelector('.modal')
-let xButton = document.querySelector('#close-text')
-let modalOpen = false
-
 let images = document.querySelectorAll('img')
+let xButton = document.querySelector('#close-text')
 
 closeButton = () => {
     hidden.style.opacity = 0
@@ -39,13 +37,15 @@ fetch (baseUrl)
             let headline = res.articles[i].title
             title[i].innerText = headline
             function showHeadline () {
-                title[i].style.zIndex = '1'
-                title[i].style.transition = '0.5s'
+                title[i].classList.add('show-text')
+                images[i].classList.add('shrink-img')
+                images[i].classList.remove('stretch-img')
             }
             boxes[i].addEventListener('mouseenter', showHeadline)
             function removeHeadline () {
-                title[i].style.zIndex = '-1'
-                title[i].style.transition = '0.5s'
+                title[i].classList.remove('show-text')
+                images[i].classList.remove('shrink-img')
+                images[i].classList.add('stretch-img')
             }
             boxes[i].addEventListener('mouseleave', removeHeadline)
             //fetch timestamp
@@ -84,8 +84,6 @@ fetch (baseUrl)
                 contentBox.innerText = `${modContent}...`
             }
             boxes[i].addEventListener('click', showModal)
-
-
     }
     })
 

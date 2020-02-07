@@ -70,13 +70,16 @@ main {
 .news-box img {
     width: 100%;
     height: 100%;
+}
+.stretch-img {
     transform: scale(1.15);
     transition: .5s;
 }
 
-.news-box img:hover {
+.shrink-img {
     transform: scale(1);
     opacity: 0.7;
+    transition: .5s;
 }
 
 .column {
@@ -89,6 +92,11 @@ main {
     z-index: -1;
     position: absolute;
     font-family: 'Bebas Neue', cursive;
+    transition: .5s;
+}
+
+.show-text {
+    z-index: 1;
     transition: .5s;
 }
 
