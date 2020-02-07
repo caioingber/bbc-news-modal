@@ -26,16 +26,13 @@ fetch (baseUrl)
     })
     .then(res => {
         console.log(res)
-        for (let i=0; i < 6; i++) {
+        for (let i=0; i < 9; i++) {
         //fetch image for article
             let image = res.articles[i].urlToImage
             images[i].setAttribute('src', image)
-            // boxes[i].style.backgroundSize = 'cover'
-            // boxes[i].style.backgroundPosition = 'left'
-            // boxes[i].style.backgroundRepeat = 'no-repeat'
-            //fetch headline
             let headline = res.articles[i].title
             title[i].innerText = headline
+            //hover functions for images/textboxes
             function showHeadline () {
                 title[i].classList.add('show-text')
                 images[i].classList.add('shrink-img')
@@ -71,9 +68,6 @@ fetch (baseUrl)
                 //show modal image
                 let modalImage = document.querySelector('#modal-image')
                 modalImage.style.backgroundImage = `url(${image})`
-                modalImage.style.backgroundSize = 'cover'
-                modalImage.style.backgroundPosition = 'left'
-                modalImage.style.backgroundRepeat = 'no-repeat'
                 //show article content modal
                 let contentBox = document.querySelector('#news-content')
                 let artContent = res.articles[i].content.substring(0, 220)

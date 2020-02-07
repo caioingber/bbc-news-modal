@@ -6,9 +6,6 @@ body {
 body > * {
     border: 2px dotted black;
 }
-main {
-    height: 600px;
-}
 
 .modal {
     display: flex;
@@ -36,6 +33,9 @@ main {
     width: 90%;
     height: 60%;
     border: 1px solid black;
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
 
 }
 
@@ -43,7 +43,7 @@ main {
     display: grid;
     z-index: 0;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     width: 90%;
     min-height: 600px;
     margin: 0 auto;
@@ -54,7 +54,7 @@ main {
 
 .news-box {
     border: 2px solid rgb(188, 24, 25);
-    justify-content: flex-start;
+    justify-content: center;
     cursor: pointer;
     color: white;
     letter-spacing: 1.5px;
@@ -91,6 +91,8 @@ main {
 .headline-text {
     z-index: -1;
     position: absolute;
+    margin: 0 10%;
+    padding-right: 2%;
     font-family: 'Bebas Neue', cursive;
     transition: .5s;
 }
