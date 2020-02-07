@@ -1,23 +1,35 @@
 body {
     font-family: 'Bebas Neue', cursive;
     position: relative;
+    margin: 0;
 }
 
 body > * {
     border: 2px dotted black;
 }
 
+.modal-container {
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: gray;
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .modal {
     display: flex;
-    height: 70vh;
+    height: 70%;
     width: 80%;
     border: 5px solid rgb(188, 24, 25);
     background-color: white;
-    position: absolute;
     top: 15%;
     left: 10%;
-    opacity: 0;
-    z-index: -1;
+    opacity: 1 !important;
+    /* z-index: -1; */
     transition: .5s;
 }
 
@@ -44,7 +56,7 @@ body > * {
     z-index: 0;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 90%;
+    width: 80%;
     min-height: 600px;
     margin: 0 auto;
     grid-column-gap: 20px;

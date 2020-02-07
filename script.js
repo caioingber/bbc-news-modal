@@ -3,13 +3,16 @@
 let boxes = document.querySelectorAll('.news-box')
 let title = document.querySelectorAll('.headline-text')
 let timeStamp = document.querySelectorAll('.publish-date')
-let hidden = document.querySelector('.modal')
+let modContainer = document.querySelector('.modal-container')
+let modal = document.querySelector('.modal')
 let images = document.querySelectorAll('img')
 let xButton = document.querySelector('#close-text')
 
 closeButton = () => {
-    hidden.style.opacity = 0
-    hidden.style.zIndex = -1
+    modContainer.style.zIndex = -1
+    modContainer.style.opacity = 0
+    modal.style.zIndex = -1
+    modal.style.opacity = 0
 }
 
 xButton.addEventListener('click', closeButton)
@@ -26,7 +29,7 @@ fetch (baseUrl)
     })
     .then(res => {
         console.log(res)
-        for (let i=0; i < 9; i++) {
+        for (let i=0; i < boxes.length; i++) {
         //fetch image for article
             let image = res.articles[i].urlToImage
             images[i].setAttribute('src', image)
@@ -57,8 +60,11 @@ fetch (baseUrl)
             function showModal(e) {
                 e.preventDefault()
                 //display modal div
-                hidden.style.opacity = 1
-                hidden.style.zIndex = 9
+                title[i].classList.remove('show-text')
+                modal.style.zIndex = 2
+                modal.style.opacity = 1
+                modContainer.style.zIndex = 1
+                modContainer.style.opacity = .7
                 // show headline in modal
                 let modalHeadline = document.querySelector('#headline-modal')
                 modalHeadline.innerHTML = headline
