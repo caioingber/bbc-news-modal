@@ -16,10 +16,6 @@ xButton.addEventListener('click', closeButton)
 
 let body = document.querySelector('main')
 
-
-
-let nameUrl = "https://www.metaweather.com/api/location/search/?query=london"
-
 let baseUrl = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=eebcb3a9d0e7471c851bb8dbaa15fad4"
 
 
@@ -34,8 +30,8 @@ fetch (baseUrl)
         //fetch image for article
             let image = res.articles[i].urlToImage
             boxes[i].style.backgroundImage = `url(${image})`
-            boxes[i].style.backgroundSize = '400px'
-            boxes[i].style.backgroundPosition = 'center'
+            boxes[i].style.backgroundSize = 'cover'
+            boxes[i].style.backgroundPosition = 'left'
             boxes[i].style.backgroundRepeat = 'no-repeat'
             //fetch headline
             let headline = res.articles[i].title
@@ -54,17 +50,17 @@ fetch (baseUrl)
                 //display modal div
                 hidden.style.opacity = 1
                 hidden.style.zIndex = 1
-                //show headline in modal
+                // show headline in modal
                 let modalHeadline = document.querySelector('#headline-modal')
                 modalHeadline.innerHTML = headline
-                //show description
+                // show description
                 let modalDescription = document.querySelector('#news-description')
                 modalDescription.innerHTML = res.articles[i].description
                 //show modal image
                 let modalImage = document.querySelector('#modal-image')
                 modalImage.style.backgroundImage = `url(${image})`
-                modalImage.style.backgroundSize = 'contain'
-                modalImage.style.backgroundPosition = 'center'
+                modalImage.style.backgroundSize = 'cover'
+                modalImage.style.backgroundPosition = 'left'
                 modalImage.style.backgroundRepeat = 'no-repeat'
                 //show article content modal
                 let contentBox = document.querySelector('#news-content')
