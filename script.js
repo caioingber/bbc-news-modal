@@ -66,6 +66,14 @@ fetch (baseUrl)
                 modalImage.style.backgroundSize = 'contain'
                 modalImage.style.backgroundPosition = 'center'
                 modalImage.style.backgroundRepeat = 'no-repeat'
+                //show article content modal
+                let contentBox = document.querySelector('#news-content')
+                let artContent = res.articles[i].content.substring(0, 220)
+                //removing line breaks from API
+                let contentArr = artContent.split('\r\n')
+                contentArr = contentArr.concat()
+                let modContent = contentArr.toString()
+                contentBox.innerText = `${modContent}...`
             }
             boxes[i].addEventListener('click', showModal)
 

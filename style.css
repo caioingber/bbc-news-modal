@@ -1,5 +1,6 @@
 body {
     font-family: 'Bebas Neue', cursive;
+    position: relative;
 }
 
 body > * {
@@ -7,14 +8,13 @@ body > * {
 }
 main {
     height: 600px;
-    position: relative;
 }
 
 .modal {
     display: flex;
-    height: 70%;
+    height: 70vh;
     width: 80%;
-    border: 5px solid black;
+    border: 5px solid rgb(188, 24, 25);
     background-color: white;
     position: absolute;
     top: 15%;
@@ -52,7 +52,7 @@ main {
 }
 
 .news-box {
-    border: 2px solid black;
+    border: 2px solid rgb(188, 24, 25);
     justify-content: flex-start;
     cursor: pointer;
     /* background-size: cover; */
