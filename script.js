@@ -2,16 +2,22 @@
 // key = eebcb3a9d0e7471c851bb8dbaa15fad4
 let boxes = document.querySelectorAll('.news-box')
 let title = document.querySelectorAll('.headline-text')
-let date = document.querySelectorAll('.publish-date')
+let timeStamp = document.querySelectorAll('.publish-date')
 let hidden = document.querySelector('.modal')
 let xButton = document.querySelector('#close-btn')
+let xbutton2 = document.querySelector('header')
+let modalOpen = false
 
 closeButton = () => {
+    if (modalOpen === true) {
     hidden.style.opacity = 0
     hidden.style.zIndex = -1
+    modalOpen = false
+}
 }
 
 xButton.addEventListener('click', closeButton)
+xbutton2.addEventListener('click', closeButton)
 
 let body = document.querySelector('main')
 
@@ -33,8 +39,8 @@ fetch (baseUrl)
         //fetch image for article
             let image = res.articles[i].urlToImage
             boxes[i].style.backgroundImage = `url(${image})`
-            boxes[i].style.backgroundSize = 'contain'
-            boxes[i].style.backgroundPosition = 'center bottom'
+            boxes[i].style.backgroundSize = '400px'
+            boxes[i].style.backgroundPosition = 'center'
             boxes[i].style.backgroundRepeat = 'no-repeat'
             //fetch headline
             let headline = res.articles[i].title
@@ -42,11 +48,14 @@ fetch (baseUrl)
             //fetch timestamp
             let publishTime = res.articles[i].publishedAt
             let trimStamp = publishTime.substring(0, 10)
-            date[i].innerHTML = trimStamp
+            let arrayStamp = trimStamp.split('-')
+            let date = new Date(arrayStamp)
+            let stringDate = date.toString()
+            timeStamp[i].innerHTML = stringDate.substring(0, 15)
             
             //eventlistener Modal
-            function showModal() {
-                // e.preventDefault()
+            function showModal(e) {
+                e.preventDefault()
                 hidden.style.opacity = 1
                 hidden.style.zIndex = 1
                 let modalHeadline = document.querySelector('#headline-modal')
@@ -55,6 +64,7 @@ fetch (baseUrl)
                 modalDescription.innerHTML = res.articles[i].description
                 let modalImage = document.querySelector('#modal-image')
                 modalImage.setAttribute('src', image)
+                modalOpen = true
             }
             boxes[i].addEventListener('click', showModal)
 
