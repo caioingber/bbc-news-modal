@@ -5,7 +5,6 @@ let title = document.querySelectorAll('.headline-text')
 let timeStamp = document.querySelectorAll('.publish-date')
 let hidden = document.querySelector('.modal')
 let xButton = document.querySelector('#close-btn')
-let xbutton2 = document.querySelector('header')
 let modalOpen = false
 
 closeButton = () => {
@@ -17,7 +16,6 @@ closeButton = () => {
 }
 
 xButton.addEventListener('click', closeButton)
-xbutton2.addEventListener('click', closeButton)
 
 let body = document.querySelector('main')
 
@@ -56,12 +54,16 @@ fetch (baseUrl)
             //eventlistener Modal
             function showModal(e) {
                 e.preventDefault()
+                //display modal div
                 hidden.style.opacity = 1
                 hidden.style.zIndex = 1
+                //show headline in modal
                 let modalHeadline = document.querySelector('#headline-modal')
                 modalHeadline.innerHTML = headline
+                //show description
                 let modalDescription = document.querySelector('#news-description')
                 modalDescription.innerHTML = res.articles[i].description
+                //show modal image
                 let modalImage = document.querySelector('#modal-image')
                 modalImage.setAttribute('src', image)
                 modalOpen = true

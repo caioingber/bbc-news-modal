@@ -11,6 +11,7 @@ main {
 }
 
 .modal {
+    display: flex;
     height: 70%;
     width: 80%;
     border: 5px solid black;
@@ -21,6 +22,14 @@ main {
     opacity: 0;
     z-index: -1;
     transition: .5s;
+}
+
+#modal-left {
+    width: 50%;
+}
+
+#modal-right {
+    width: 50%;
 }
 
 .news-container {
@@ -38,12 +47,15 @@ main {
 
 .news-box {
     border: 2px solid black;
-    display: flex;
-    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
     cursor: pointer;
     /* background-size: cover; */
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .headline-text {
@@ -51,10 +63,20 @@ main {
 }
 
 #close-btn {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+#close-text {
+    margin: 15px;
+    padding: 5px;
+    border: 1px solid gray;
     cursor: pointer;
+
 }
 
 nav {
-    min-height: 90px;
+    min-height: 80px;
     width: 100%;
 }
