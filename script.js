@@ -4,15 +4,12 @@ let boxes = document.querySelectorAll('.news-box')
 let title = document.querySelectorAll('.headline-text')
 let timeStamp = document.querySelectorAll('.publish-date')
 let hidden = document.querySelector('.modal')
-let xButton = document.querySelector('#close-btn')
+let xButton = document.querySelector('#close-text')
 let modalOpen = false
 
 closeButton = () => {
-    if (modalOpen === true) {
     hidden.style.opacity = 0
     hidden.style.zIndex = -1
-    modalOpen = false
-}
 }
 
 xButton.addEventListener('click', closeButton)
@@ -65,8 +62,10 @@ fetch (baseUrl)
                 modalDescription.innerHTML = res.articles[i].description
                 //show modal image
                 let modalImage = document.querySelector('#modal-image')
-                modalImage.setAttribute('src', image)
-                modalOpen = true
+                modalImage.style.backgroundImage = `url(${image})`
+                modalImage.style.backgroundSize = 'contain'
+                modalImage.style.backgroundPosition = 'center'
+                modalImage.style.backgroundRepeat = 'no-repeat'
             }
             boxes[i].addEventListener('click', showModal)
 

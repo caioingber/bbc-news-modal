@@ -32,6 +32,12 @@ main {
     width: 50%;
 }
 
+#modal-image {
+    width: 90%;
+    height: 60%;
+    border: 1px solid black;
+}
+
 .news-container {
     display: grid;
     z-index: 0;
