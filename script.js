@@ -7,6 +7,7 @@ let modContainer = document.querySelector('.modal-container')
 let modal = document.querySelector('.modal')
 let images = document.querySelectorAll('img')
 let xButton = document.querySelector('#close-text')
+let contentBox = document.querySelector('#news-content')
 
 closeButton = (e) => {
     e.preventDefault()
@@ -14,6 +15,7 @@ closeButton = (e) => {
     modContainer.style.opacity = 0
     modal.style.zIndex = -1
     modal.style.opacity = 0
+    contentBox.innerText = ""
 }
 
 xButton.addEventListener('click', closeButton)
@@ -69,13 +71,12 @@ fetch (baseUrl)
                 let modalImage = document.querySelector('#modal-image')
                 modalImage.style.backgroundImage = `url(${image})`
                 //show article content modal
-                let contentBox = document.querySelector('#news-content')
                 let artContent = res.articles[i].content.substring(0, 220)
                 //removing line breaks from API
-                let contentArr = artContent.split('\r\n')
-                contentArr = contentArr.concat()
-                let modContent = contentArr.toString()
-                contentBox.innerText = `${modContent}...`
+                // let contentArr = artContent.split('\r\n')
+                // contentArr = contentArr.concat()
+                // let modContent = contentArr.toString()
+                contentBox.innerText = `${artContent}...`
                 //Show publish date in modal
                 let publishTime = res.articles[i].publishedAt
                 let trimStamp = publishTime.substring(0, 10)

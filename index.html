@@ -5,23 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css"></link>
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap" rel="stylesheet">
     <title>BBC New API</title>
 </head>
 <body>
     <div class="modal-container">
         <div class="modal">
-            <div id="modal-top"></div>
-            <div id="modal-left" class="column">
-                <h1 id="headline-modal"></h1>
+            <div id="modal-top">
+                <div id="close-btn"><h2 id="headline-modal"></h2><p id="close-text">X</p></div>
                 <p id="news-description"></p>
-                <p id="news-content"></p>
-                <p><a id="article-link" href="#" target="_blank"> Read More...</a></p>
             </div>
-            <div id="modal-right" class="column">
-                <div id="close-btn"><p id="close-text">X</p></div>
-                <h3 class="publish-date"></h3>
-                <div id="modal-image"></div>
+            <div id="modal-bottom">
+                <div id="modal-left" >
+                    <p class="publish-date"></p>
+                    <p id="news-content"></p>
+                    <p><a id="article-link" href="#" target="_blank"> Read More...</a></p>
+                </div>
+                <div id="modal-right" >
+                    <div id="modal-image"></div>
+                </div>
             </div>
         </div>
     </div>
