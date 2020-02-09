@@ -75,6 +75,14 @@ header {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(1fr, 10);
     }
+    #headline-modal {
+        font-size: 1.2em;
+    }
+    .headline-text{
+    z-index: 0 !important;
+    opacity: 1 !important;
+    font-size: 1.5em;
+}
 }
 
 @media screen and (min-width: 577px) {
