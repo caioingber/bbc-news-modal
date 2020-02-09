@@ -12,23 +12,24 @@ body > * {
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-color: gray;
+    background-color: rgba(163, 153, 153, 0.7);
     opacity: 0;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .5s;
 }
 
 .modal {
     display: flex;
-    height: 70%;
-    width: 80%;
+    height: 50%;
+    width: 60%;
     border: 5px solid rgb(188, 24, 25);
     background-color: white;
     top: 15%;
     left: 10%;
-    opacity: 1 !important;
+    opacity: 1;
     /* z-index: -1; */
     transition: .5s;
 }
@@ -102,8 +103,9 @@ body > * {
 
 .headline-text {
     z-index: -1;
+    opacity: 0;
     position: absolute;
-    margin: 0 10%;
+    margin: 0 5%;
     padding-right: 2%;
     font-family: 'Bebas Neue', cursive;
     transition: .5s;
@@ -111,11 +113,12 @@ body > * {
 
 .show-text {
     z-index: 1;
+    opacity: 1;
     transition: .5s;
 }
 
 .publish-date {
-    display: none;
+    /* display: none; */
 }
 
 #close-btn {
@@ -127,7 +130,7 @@ body > * {
 #close-text {
     margin: 15px;
     padding: 5px;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     cursor: pointer;
 
 }

@@ -2,13 +2,14 @@
 // key = eebcb3a9d0e7471c851bb8dbaa15fad4
 let boxes = document.querySelectorAll('.news-box')
 let title = document.querySelectorAll('.headline-text')
-let timeStamp = document.querySelectorAll('.publish-date')
+let timeStamp = document.querySelector('.publish-date')
 let modContainer = document.querySelector('.modal-container')
 let modal = document.querySelector('.modal')
 let images = document.querySelectorAll('img')
 let xButton = document.querySelector('#close-text')
 
-closeButton = () => {
+closeButton = (e) => {
+    e.preventDefault()
     modContainer.style.zIndex = -1
     modContainer.style.opacity = 0
     modal.style.zIndex = -1
@@ -48,23 +49,16 @@ fetch (baseUrl)
                 images[i].classList.add('stretch-img')
             }
             boxes[i].addEventListener('mouseleave', removeHeadline)
-            //fetch timestamp
-            let publishTime = res.articles[i].publishedAt
-            let trimStamp = publishTime.substring(0, 10)
-            let arrayStamp = trimStamp.split('-')
-            let date = new Date(arrayStamp)
-            let stringDate = date.toString()
-            timeStamp[i].innerHTML = stringDate.substring(0, 15)
             
             //eventlistener Modal
             function showModal(e) {
                 e.preventDefault()
                 //display modal div
                 title[i].classList.remove('show-text')
-                modal.style.zIndex = 2
+                modal.style.zIndex = 2000
                 modal.style.opacity = 1
                 modContainer.style.zIndex = 1
-                modContainer.style.opacity = .7
+                modContainer.style.opacity = 1
                 // show headline in modal
                 let modalHeadline = document.querySelector('#headline-modal')
                 modalHeadline.innerHTML = headline
@@ -82,6 +76,13 @@ fetch (baseUrl)
                 contentArr = contentArr.concat()
                 let modContent = contentArr.toString()
                 contentBox.innerText = `${modContent}...`
+                //Show publish date in modal
+                let publishTime = res.articles[i].publishedAt
+                let trimStamp = publishTime.substring(0, 10)
+                let arrayStamp = trimStamp.split('-')
+                let date = new Date(arrayStamp)
+                let stringDate = date.toString()
+                timeStamp.innerHTML = stringDate.substring(0, 15)
             }
             boxes[i].addEventListener('click', showModal)
     }
