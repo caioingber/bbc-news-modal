@@ -9,6 +9,7 @@ let images = document.querySelectorAll('.stretch-img')
 let xButton = document.querySelector('#close-text')
 let contentBox = document.querySelector('#news-content')
 
+
 closeButton = (e) => {
     e.preventDefault()
     modContainer.style.zIndex = -1
@@ -16,6 +17,8 @@ closeButton = (e) => {
     modal.style.zIndex = -1
     modal.style.opacity = 0
     contentBox.innerText = ""
+    // modalUrl.setAttribute('href', '')
+
 }
 
 xButton.addEventListener('click', closeButton)
@@ -70,6 +73,10 @@ fetch (baseUrl)
                 //show modal image
                 let modalImage = document.querySelector('#modal-image')
                 modalImage.style.backgroundImage = `url(${image})`
+                //link article URL
+                let modalUrl = document.querySelector('#article-link')
+                let artLink = res.articles[i].url
+                modalUrl.setAttribute('href', artLink)
                 //show article content modal
                 let artContent = res.articles[i].content.substring(0, 220)
                 // removing line breaks from API
@@ -84,10 +91,7 @@ fetch (baseUrl)
                 let date = new Date(arrayStamp)
                 let stringDate = date.toString()
                 timeStamp.innerHTML = stringDate.substring(0, 15)
-                //link article URL
-                let modalUrl = document.querySelector('#article-link')
-                let artLink = res.articles[i].url
-                modalUrl.setAttribute('href', artLink)
+            
             }
             boxes[i].addEventListener('click', showModal)
     }
