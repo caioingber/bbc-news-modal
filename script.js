@@ -83,6 +83,10 @@ fetch (baseUrl)
                 let date = new Date(arrayStamp)
                 let stringDate = date.toString()
                 timeStamp.innerHTML = stringDate.substring(0, 15)
+                //link article URL
+                let modalUrl = document.querySelector('#article-link')
+                let artLink = res.articles[i].url
+                modalUrl.setAttribute('href', artLink)
             }
             boxes[i].addEventListener('click', showModal)
     }
