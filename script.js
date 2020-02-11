@@ -27,7 +27,6 @@ let body = document.querySelector('main')
 
 let baseUrl = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=eebcb3a9d0e7471c851bb8dbaa15fad4"
 
-
 //API request to fill in page with article data when loaded
 fetch (baseUrl)
     .then(res => {
